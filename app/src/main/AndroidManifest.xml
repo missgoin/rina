@@ -38,9 +38,7 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".utils.JoystickService"
-            android:exported="false" />
+
 
 
         <meta-data
