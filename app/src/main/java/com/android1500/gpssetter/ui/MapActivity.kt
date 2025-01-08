@@ -39,7 +39,7 @@ import com.android1500.gpssetter.R
 import com.android1500.gpssetter.adapter.FavListAdapter
 import com.android1500.gpssetter.databinding.ActivityMapBinding
 import com.android1500.gpssetter.ui.viewmodel.MainViewModel
-import com.android1500.gpssetter.utils.JoystickService
+//import com.android1500.gpssetter.utils.JoystickService
 import com.android1500.gpssetter.utils.NotificationsChannel
 import com.android1500.gpssetter.utils.PrefManager
 import com.android1500.gpssetter.utils.ext.*
@@ -116,9 +116,9 @@ class MapActivity :  MonetCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapC
         setupMonet()
         setupButton()
         setDrawer()
-        if (PrefManager.isJoyStickEnable){
-            startService(Intent(this, JoystickService::class.java))
-        }
+//        if (PrefManager.isJoyStickEnable){
+//            startService(Intent(this, JoystickService::class.java))
+//        }
 
     }
 

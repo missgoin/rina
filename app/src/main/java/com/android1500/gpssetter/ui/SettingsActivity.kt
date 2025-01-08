@@ -22,7 +22,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceDataStore
 import com.android1500.gpssetter.R
 import com.android1500.gpssetter.databinding.SettingsActivityBinding
-import com.android1500.gpssetter.utils.JoystickService
+//import com.android1500.gpssetter.utils.JoystickService
 import com.android1500.gpssetter.utils.PrefManager
 import com.android1500.gpssetter.utils.ext.showToast
 import com.highcapable.yukihookapi.hook.xposed.prefs.ui.ModulePreferenceFragment
@@ -44,7 +44,7 @@ class SettingsActivity : MonetCompatActivity() {
                 "isHookedSystem" -> PrefManager.isHookSystem
                 "random_position" -> PrefManager.isRandomPosition
                 "disable_update" -> PrefManager.disableUpdate
-                "isJoyStickEnable" -> PrefManager.isJoyStickEnable
+//                "isJoyStickEnable" -> PrefManager.isJoyStickEnable
                 else -> throw IllegalArgumentException("Invalid key $key")
             }
         }
@@ -54,7 +54,7 @@ class SettingsActivity : MonetCompatActivity() {
                 "isHookedSystem" -> PrefManager.isHookSystem = value
                 "random_position" -> PrefManager.isRandomPosition = value
                 "disable_update" -> PrefManager.disableUpdate = value
-                "isJoyStickEnable" -> PrefManager.isJoyStickEnable = value
+//                "isJoyStickEnable" -> PrefManager.isJoyStickEnable = value
                 else -> throw IllegalArgumentException("Invalid key $key")
             }
         }
@@ -158,38 +158,10 @@ class SettingsActivity : MonetCompatActivity() {
                 true
             }
 
-            findPreference<Preference>("isJoyStickEnable")?.let {
-                it.setOnPreferenceClickListener {
-                    if (askOverlayPermission()){
-                        if (isJoystickRunning()){
-                            requireContext().stopService(Intent(context,JoystickService::class.java))
-                            it.summary = "Joystick running"
-                        }else if (PrefManager.isStarted){
-                            requireContext().startService(Intent(context,JoystickService::class.java))
-                            it.summary = "Joystick not running"
-                        }else {
-                            requireContext().showToast(requireContext().getString(R.string.location_not_select))
-                        }
-                    }
-                    true
-                }
-
-            }
-
 
 
         }
 
-        private fun isJoystickRunning(): Boolean {
-            var isRunning = false
-            val manager = requireContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager? ?: return false
-            for (service in manager.getRunningServices(Int.MAX_VALUE)) {
-                if ("com.android1500.gpssetter.utils.JoystickService" == service.service.className) {
-                    isRunning = true
-                }
-            }
-            return isRunning
-        }
 
 
         private fun askOverlayPermission() : Boolean {

@@ -77,9 +77,9 @@ object PrefManager   {
         get() = pref.getBoolean(DISABLE_UPDATE, false)
         set(value) = pref.edit().putBoolean(DISABLE_UPDATE, value).apply()
 
-    var isJoyStickEnable: Boolean
-    get() = pref.getBoolean("isJoyStickEnable",false)
-    set(value) = pref.edit().putBoolean("isJoyStickEnable",value).apply()
+//    var isJoyStickEnable: Boolean
+//    get() = pref.getBoolean("isJoyStickEnable",false)
+//    set(value) = pref.edit().putBoolean("isJoyStickEnable",value).apply()
 
 
 
