@@ -11,11 +11,11 @@ plugins {
 def tagName = 'v1.3.0-beta'
 
 android {
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         applicationId "com.android1500.gpssetter"
         minSdk 27
-        targetSdk 33
+        targetSdk 34
         versionCode 1310
         versionName tagName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
     buildFeatures {
         viewBinding true
@@ -100,7 +100,6 @@ dependencies {
     implementation 'androidx.palette:palette:1.0.0'
 
 
-    implementation 'io.github.controlwear:virtualjoystick:1.10.1'
 
 
 
