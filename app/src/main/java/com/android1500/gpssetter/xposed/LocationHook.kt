@@ -268,9 +268,8 @@ object LocationHook : YukiBaseHooker() {
                         val provider = args[0] as String
                         val location = Location(provider)
                         location.time = System.currentTimeMillis() - 300
-                        val format = DecimalFormat("#.#######") //format latitude and longitude to 7 decimal places
-                        location.latitude = format.format(newlat).toDouble()
-                        location.longitude = format.format(newlng).toDouble()
+                        location.latitude = newlat
+                        location.longitude = newlng
                         location.altitude = 0.0
                         location.speed = 0F
                         location.speedAccuracyMetersPerSecond = 0F
