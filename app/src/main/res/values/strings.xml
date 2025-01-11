@@ -78,6 +78,11 @@
     <string name="start_spoofing">Set location</string>
     <string name="current_address">current address</string>
     <string name="app_update_failed">App update fail</string>
+    
+    
+    <string name="map_api_key">AIzaSyDPI80InOL3zOTpimXgsEi8t</string>
+
+    
 
 
 </resources>
